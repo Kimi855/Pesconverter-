@@ -1,63 +1,47 @@
-// JSON dei giocatori di esempio
-const teamsData = {
-    "FC Barcelona": [
-        { "name": "Lionel Messi", "position": "Forward", "fifa_value": 93, "pes_value": 90 },
-        { "name": "Sergio Busquets", "position": "Midfielder", "fifa_value": 87, "pes_value": 84 },
-        { "name": "Gerard Piqué", "position": "Defender", "fifa_value": 85, "pes_value": 83 }
-    ],
-    "Real Madrid": [
-        { "name": "Karim Benzema", "position": "Forward", "fifa_value": 89, "pes_value": 86 },
-        { "name": "Luka Modric", "position": "Midfielder", "fifa_value": 88, "pes_value": 85 },
-        { "name": "Sergio Ramos", "position": "Defender", "fifa_value": 86, "pes_value": 84 }
-    ]
+const fifaToPesConversion = {
+  // Un esempio di mappatura per la conversione
+  "overall": (fifaValue) => Math.round(fifaValue * 0.8), // esempio di conversione (da FIFA a PES)
+  "pace": (fifaValue) => Math.round(fifaValue * 0.85),
+  "shooting": (fifaValue) => Math.round(fifaValue * 0.75),
+  "passing": (fifaValue) => Math.round(fifaValue * 0.78),
+  "dribbling": (fifaValue) => Math.round(fifaValue * 0.82),
+  "defending": (fifaValue) => Math.round(fifaValue * 0.70),
+  "physical": (fifaValue) => Math.round(fifaValue * 0.80)
 };
 
-window.onload = function() {
-    const teamSelect = document.getElementById("team-select");
-    const playerList = document.querySelector("#player-list tbody");
-
-    // Popola il menu di selezione delle squadre
-    for (let team in teamsData) {
-        let option = document.createElement("option");
-        option.value = team;
-        option.textContent = team;
-        teamSelect.appendChild(option);
-    }
-
-    // Funzione per caricare i giocatori della squadra selezionata
-    teamSelect.addEventListener("change", function() {
-        const selectedTeam = teamSelect.value;
-        const players = teamsData[selectedTeam];
-        updatePlayerList(players);
-    });
-
-    // Funzione per aggiornare la lista dei giocatori
-    function updatePlayerList(players) {
-        playerList.innerHTML = ""; // Pulisce la lista precedente
-        players.forEach(player => {
-            const row = document.createElement("tr");
-
-            const nameCell = document.createElement("td");
-            nameCell.textContent = player.name;
-            row.appendChild(nameCell);
-
-            const positionCell = document.createElement("td");
-            positionCell.textContent = player.position;
-            row.appendChild(positionCell);
-
-            const fifaValueCell = document.createElement("td");
-            fifaValueCell.textContent = player.fifa_value;
-            row.appendChild(fifaValueCell);
-
-            const pesValueCell = document.createElement("td");
-            pesValueCell.textContent = player.pes_value;
-            row.appendChild(pesValueCell);
-
-            playerList.appendChild(row);
-        });
-    }
-
-    // Carica la lista dei giocatori per la prima squadra (di default)
-    teamSelect.value = "FC Barcelona";
-    updatePlayerList(teamsData["FC Barcelona"]);
+// Simuliamo un database di giocatori FIFA per esempio
+const fifaDatabase = {
+  "1": { name: "Lionel Messi", overall: 93, pace: 85, shooting: 89, passing: 87, dribbling: 95, defending: 36, physical: 60, team: "Altro" },
+  "2": { name: "Cristiano Ronaldo", overall: 92, pace: 86, shooting: 91, passing: 83, dribbling: 87, defending: 35, physical: 75, team: "Juventus" },
+  "3": { name: "Neymar Jr", overall: 91, pace: 90, shooting: 86, passing: 83, dribbling: 92, defending: 36, physical: 61, team: "PSG" }
 };
+
+// Funzione per convertire un giocatore FIFA a PES21
+function convertPlayer() {
+  const fifaId = document.getElementById("fifaPlayerId").value;
+  const player = fifaDatabase[fifaId];
+  
+  if (!player) {
+    alert("Giocatore non trovato.");
+    return;
+  }
+
+  // Conversione delle statistiche
+  const pesPlayer = {
+    name: player.name,
+    overall: fifaToPesConversion["overall"](player.overall),
+    pace: fifaToPesConversion["pace"](player.pace),
+    shooting: fifaToPesConversion["shooting"](player.shooting),
+    passing: fifaToPesConversion["passing"](player.passing),
+    dribbling: fifaToPesConversion["dribbling"](player.dribbling),
+    defending: fifaToPesConversion["defending"](player.defending),
+    physical: fifaToPesConversion["physical"](player.physical)
+  };
+
+  // Mostriamo i risultati
+  document.getElementById("pesName").textContent = "Nome: " + pesPlayer.name;
+  document.getElementById("pesAttributes").textContent = `Overall: ${pesPlayer.overall} | Pace: ${pesPlayer.pace} | Shooting: ${pesPlayer.shooting} | Passing: ${pesPlayer.passing} | Dribbling: ${pesPlayer.dribbling} | Defending: ${pesPlayer.defending} | Physical: ${pesPlayer.physical}`;
+
+  // Mostrare la sezione con il risultato
+  document.getElementById("result").style.display = "block";
+}
