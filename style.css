@@ -1,33 +1,17 @@
-/* Imposta lo sfondo nero */
-body {
-  margin: 0;
-  padding: 0;
-  background-color: black;
-  color: white;
-  font-family: Arial, sans-serif;
-  text-align: center;
-}
-
-/* Bande bianche sopra e sotto */
-.white-bar {
-  background-color: white;
-  height: 20px;
-  width: 100%;
-  margin: 0 auto;
-}
-
-/* Scritta PES21 in rosso e blu */
-.main-title {
-  font-size: 80px;
-  color: red;
-  font-weight: bold;
-  margin: 20px 0;
-}
-
-/* Scritta converter in corsivo sotto */
-.subtitle {
-  font-size: 40px;
-  color: blue;
-  font-style: italic;
-  margin-top: 10px;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PES21 Converter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <div class="banner"></div>
+    <h1 class="pes-title">
+        PES<span class="dual-color">21</span>
+    </h1>
+    <h2 class="converter">Converter</h2>
+    <div class="banner"></div>
+</body>
+</html>
