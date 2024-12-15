@@ -1,37 +1,43 @@
-/* Impostazioni generali */
+/* Semplice stile per il corpo della pagina */
 body {
-    background-color: black;
-    color: white;
-    font-family: Arial, sans-serif;
-    text-align: center;
-    margin: 0;
-    padding: 0;
+  font-family: Arial, sans-serif;
+  background-color: #111;  /* Sfondo scuro */
+  color: white;  /* Scritta bianca */
+  margin: 0;
+  padding: 0;
+  text-align: center;
 }
 
-/* Bande bianche sopra e sotto */
-.banner {
-    background-color: white;
-    height: 20px;
-    width: 100%;
+/* Stile per il titolo PES21 */
+h1 {
+  color: red;
+  font-size: 3em;
+  text-transform: uppercase;
+  text-shadow: 2px 2px 4px rgba(0,0,0,0.5);  /* Aggiunge ombra al testo */
+  background-color: white;
+  display: inline-block;
+  padding: 10px 20px;
+  border-radius: 10px;
+  margin-top: 50px;
 }
 
-/* Scritta PES21 */
-.pes-title {
-    color: red;
-    font-size: 4em;
-    margin: 20px 0 0 0;
+/* Stile per il secondo titolo (converter) */
+h2 {
+  font-size: 1.5em;
+  font-style: italic;
+  color: white;
+  background-color: white;
+  display: inline-block;
+  padding: 5px 15px;
+  border-radius: 5px;
+  margin-top: 20px;
 }
 
-/* Il "21" è blu */
-.dual-color {
-    color: blue;
-}
-
-/* Scritta Converter */
-.converter {
-    color: white;
-    font-style: italic;
-    font-size: 2em;
-    margin: 0;
-    padding-top: 10px;
+/* Stile per la banda sopra e sotto */
+div.bande {
+  background-color: white;
+  height: 10px;
+  width: 100%;
+  margin-top: 20px;
+  margin-bottom: 20px;
 }
