@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="it">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PES 21 Converter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <div class="header-content">
+            <h1>PES 21 Converter</h1>
+            <p>Converti i valori di FIFA in PES con un click!</p>
+        </div>
+    </header>
+
+    <section id="converter">
+        <h2>Scegli la squadra e inizia la conversione</h2>
+
+        <div class="team-selection">
+            <label for="team-select">Seleziona la squadra:</label>
+            <select id="team-select">
+                <!-- Le squadre saranno caricate dinamicamente tramite JavaScript -->
+            </select>
+        </div>
+
+        <div id="player-list">
+            <h3>Giocatori della squadra</h3>
+            <table>
+                <thead>
+                    <tr>
+                        <th>Nome</th>
+                        <th>Posizione</th>
+                        <th>Valore FIFA</th>
+                        <th>Valore PES</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <!-- I giocatori convertiti verranno visualizzati qui -->
+                </tbody>
+            </table>
+        </div>
+    </section>
+
+    <script src="script.js"></script>
+</body>
+</html>
