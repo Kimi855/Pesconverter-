@@ -1,17 +1,57 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="it">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>PES21 Converter</title>
-    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="banner"></div>
-    <h1 class="pes-title">
-        PES<span class="dual-color">21</span>
-    </h1>
-    <h2 class="converter">Converter</h2>
-    <div class="banner"></div>
+
+    <div class="container">
+        <div class="header">
+            <div class="banner"></div>
+            <h1>PES21</h1>
+            <h2>Converter</h2>
+            <div class="banner"></div>
+        </div>
+
+        <div class="main-content">
+            <h3>Welcome to PES21 Converter</h3>
+            <p>Convert your FIFA player attributes to PES attributes easily!</p>
+
+            <!-- Form to upload file -->
+            <div>
+                <label for="file-upload" class="upload-btn">Drag your file here or click to upload</label>
+                <input type="file" id="file-upload" onchange="handleFileUpload(event)">
+            </div>
+            <div id="file-info"></div>
+            <div id="conversion-result"></div>
+        </div>
+    </div>
+
+    <script>
+        // Function to handle file upload
+        function handleFileUpload(event) {
+            const file = event.target.files[0];
+            if (file) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    const fileContent = e.target.result;
+                    document.getElementById('file-info').innerText = "File Uploaded: " + file.name;
+                    convertFileContent(fileContent);
+                };
+                reader.readAsText(file);
+            }
+        }
+
+        // Function to convert file content
+        function convertFileContent(content) {
+            // This is just a mock-up. Replace this with your real conversion logic.
+            const convertedContent = content.toUpperCase(); // Example conversion: turning text to uppercase
+            document.getElementById('conversion-result').innerText = "Converted Content:\n" + convertedContent;
+        }
+    </script>
+
 </body>
 </html>
