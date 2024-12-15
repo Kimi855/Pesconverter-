@@ -1,57 +1,29 @@
 <!DOCTYPE html>
 <html lang="it">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PES21 Converter</title>
-    <link rel="stylesheet" href="styles.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>PES21 CONVERTER</title>
+  <link rel="stylesheet" href="style.css"> <!-- Assicurati che il percorso sia corretto -->
 </head>
 <body>
+  <!-- Banda bianca sopra -->
+  <div class="bande"></div>
 
-    <div class="container">
-        <div class="header">
-            <div class="banner"></div>
-            <h1>PES21</h1>
-            <h2>Converter</h2>
-            <div class="banner"></div>
-        </div>
+  <!-- Titolo principale PES21 -->
+  <h1>PES21</h1>
 
-        <div class="main-content">
-            <h3>Welcome to PES21 Converter</h3>
-            <p>Convert your FIFA player attributes to PES attributes easily!</p>
+  <!-- Titolo secondario CONVERTER -->
+  <h2>CONVERTER</h2>
 
-            <!-- Form to upload file -->
-            <div>
-                <label for="file-upload" class="upload-btn">Drag your file here or click to upload</label>
-                <input type="file" id="file-upload" onchange="handleFileUpload(event)">
-            </div>
-            <div id="file-info"></div>
-            <div id="conversion-result"></div>
-        </div>
-    </div>
+  <!-- Banda bianca sotto -->
+  <div class="bande"></div>
 
-    <script>
-        // Function to handle file upload
-        function handleFileUpload(event) {
-            const file = event.target.files[0];
-            if (file) {
-                const reader = new FileReader();
-                reader.onload = function(e) {
-                    const fileContent = e.target.result;
-                    document.getElementById('file-info').innerText = "File Uploaded: " + file.name;
-                    convertFileContent(fileContent);
-                };
-                reader.readAsText(file);
-            }
-        }
+  <!-- Sezione per il contenuto o altre funzionalità -->
+  <div class="content">
+    <p>Qui puoi inserire il contenuto per il convertitore, come il modulo di ricerca e la conversione dei valori.</p>
+  </div>
 
-        // Function to convert file content
-        function convertFileContent(content) {
-            // This is just a mock-up. Replace this with your real conversion logic.
-            const convertedContent = content.toUpperCase(); // Example conversion: turning text to uppercase
-            document.getElementById('conversion-result').innerText = "Converted Content:\n" + convertedContent;
-        }
-    </script>
-
+  <script src="script.js"></script> <!-- Assicurati che il percorso sia corretto -->
 </body>
 </html>
