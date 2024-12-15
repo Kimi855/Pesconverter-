@@ -1,32 +1,25 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PES Converter</title>
+    <title>PES 21 Converter</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome to PES Converter</h1>
-        <h2>Convertitore da FIFA a PES21</h2>
-        
-        <form id="convertForm">
-            <label for="fifaRating">Valutazione FIFA:</label>
-            <input type="number" id="fifaRating" name="fifaRating" required>
-
-            <label for="fifaSkill">Abilità FIFA:</label>
-            <input type="number" id="fifaSkill" name="fifaSkill" required>
-
-            <button type="submit">Converti</button>
-        </form>
-
-        <div id="result">
-            <h3>Risultato della conversione:</h3>
-            <p id="pesRating">PES21 Rating: </p>
-            <p id="pesSkill">PES21 Abilità: </p>
-        </div>
+    <div class="header">
+        <h1>PES 21 Converter</h1>
+        <p class="description">Converti i dati dei giocatori da FIFA a PES 21 con valori precisi e realismo perfetto!</p>
     </div>
+    <div class="content">
+        <p>Carica il file con i dati del giocatore o della squadra.</p>
+        <input type="file" id="fileInput" />
+        <button id="convertButton">Converti</button>
+        <div id="conversionResult"></div>
+    </div>
+    <footer>
+        <p>&copy; 2024 PES 21 Converter - Tutti i diritti riservati</p>
+    </footer>
 
     <script src="script.js"></script>
 </body>
