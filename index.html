@@ -7,13 +7,27 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- Banda bianca sopra il titolo -->
-    <div class="bande"></div>
+    <div class="container">
+        <h1>Welcome to PES Converter</h1>
+        <h2>Convertitore da FIFA a PES21</h2>
+        
+        <form id="convertForm">
+            <label for="fifaRating">Valutazione FIFA:</label>
+            <input type="number" id="fifaRating" name="fifaRating" required>
 
-    <!-- Titolo PES -->
-    <h1><span>PES</span> 21</h1>
+            <label for="fifaSkill">Abilità FIFA:</label>
+            <input type="number" id="fifaSkill" name="fifaSkill" required>
 
-    <!-- Banda bianca sotto il titolo -->
-    <div class="bande-bottom"></div>
+            <button type="submit">Converti</button>
+        </form>
+
+        <div id="result">
+            <h3>Risultato della conversione:</h3>
+            <p id="pesRating">PES21 Rating: </p>
+            <p id="pesSkill">PES21 Abilità: </p>
+        </div>
+    </div>
+
+    <script src="script.js"></script>
 </body>
 </html>
