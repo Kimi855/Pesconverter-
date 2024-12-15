@@ -1,17 +1,37 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>PES21 Converter</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <div class="banner"></div>
-    <h1 class="pes-title">
-        PES<span class="dual-color">21</span>
-    </h1>
-    <h2 class="converter">Converter</h2>
-    <div class="banner"></div>
-</body>
-</html>
+/* Impostazioni generali */
+body {
+    background-color: black;
+    color: white;
+    font-family: Arial, sans-serif;
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+/* Bande bianche sopra e sotto */
+.banner {
+    background-color: white;
+    height: 20px;
+    width: 100%;
+}
+
+/* Scritta PES21 */
+.pes-title {
+    color: red;
+    font-size: 4em;
+    margin: 20px 0 0 0;
+}
+
+/* Il "21" è blu */
+.dual-color {
+    color: blue;
+}
+
+/* Scritta Converter */
+.converter {
+    color: white;
+    font-style: italic;
+    font-size: 2em;
+    margin: 0;
+    padding-top: 10px;
+}
