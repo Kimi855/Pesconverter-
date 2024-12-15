@@ -1,33 +1,38 @@
+/* Fondo nero per il sito */
 body {
+    background-color: black;
+    color: white;
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
-    background-color: #f4f4f4;
-    color: #333;
 }
 
-header {
-    background-color: #333;
-    color: #fff;
-    text-align: center;
-    padding: 20px;
+/* Bande bianche sopra e sotto il titolo */
+.bande {
+    background-color: white;
+    height: 20px; /* Altezza della banda */
+    margin-top: 50px; /* Distanza dal margine superiore */
 }
 
+/* Stile per il titolo */
 h1 {
-    margin: 0;
+    color: red; /* PES in rosso */
+    font-size: 72px;
+    text-align: center;
+    margin-top: 50px; /* Spazio sopra il titolo */
 }
 
-section {
-    text-align: center;
-    margin: 20px;
+/* Animazione per "PES" con effetto gradiente rosso e blu */
+h1 span {
+    background: linear-gradient(to left, red, blue);
+    -webkit-background-clip: text;
+    color: transparent;
+    font-weight: bold;
 }
 
-footer {
-    text-align: center;
-    padding: 10px;
-    background-color: #333;
-    color: #fff;
-    position: absolute;
-    width: 100%;
-    bottom: 0;
+/* Banda bianca sotto la scritta */
+.bande-bottom {
+    background-color: white;
+    height: 20px; /* Altezza della banda */
+    margin-top: 50px; /* Distanza dal titolo */
 }
