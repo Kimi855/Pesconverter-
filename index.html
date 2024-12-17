@@ -1,25 +1,29 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Conversione FIFA a PES21</title>
-  <link rel="stylesheet" href="styles.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>FIFA to PES21 Attribute Converter</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <div class="container">
-    <h1>Conversione FIFA a PES21</h1>
-    <label for="fifaPlayerId">Inserisci ID Giocatore FIFA:</label>
-    <input type="text" id="fifaPlayerId" placeholder="ID Giocatore FIFA">
-    <button onclick="convertPlayer()">Converti</button>
-    
-    <div id="result">
-      <h2>Giocatore Convertito</h2>
-      <p id="pesName"></p>
-      <p id="pesAttributes"></p>
-    </div>
-  </div>
-
-  <script src="script.js"></script>
+    <header>
+        <h1>FIFA to PES21 Attribute Converter</h1>
+    </header>
+    <main>
+        <section id="input-section">
+            <h2>Insert Player Data</h2>
+            <textarea id="fifa-input" placeholder="Paste FIFA data here"></textarea>
+            <button id="convert-btn">Convert</button>
+        </section>
+        <section id="output-section">
+            <h2>PES21 Converted Data</h2>
+            <pre id="pes-output"></pre>
+        </section>
+    </main>
+    <footer>
+        <p>&copy; 2024 PES Attribute Converter Tool</p>
+    </footer>
+    <script src="script.js"></script>
 </body>
 </html>
