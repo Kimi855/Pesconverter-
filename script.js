@@ -1,47 +1,63 @@
-const fifaToPesConversion = {
-  // Un esempio di mappatura per la conversione
-  "overall": (fifaValue) => Math.round(fifaValue * 0.8), // esempio di conversione (da FIFA a PES)
-  "pace": (fifaValue) => Math.round(fifaValue * 0.85),
-  "shooting": (fifaValue) => Math.round(fifaValue * 0.75),
-  "passing": (fifaValue) => Math.round(fifaValue * 0.78),
-  "dribbling": (fifaValue) => Math.round(fifaValue * 0.82),
-  "defending": (fifaValue) => Math.round(fifaValue * 0.70),
-  "physical": (fifaValue) => Math.round(fifaValue * 0.80)
-};
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
 
-// Simuliamo un database di giocatori FIFA per esempio
-const fifaDatabase = {
-  "1": { name: "Lionel Messi", overall: 93, pace: 85, shooting: 89, passing: 87, dribbling: 95, defending: 36, physical: 60, team: "Altro" },
-  "2": { name: "Cristiano Ronaldo", overall: 92, pace: 86, shooting: 91, passing: 83, dribbling: 87, defending: 35, physical: 75, team: "Juventus" },
-  "3": { name: "Neymar Jr", overall: 91, pace: 90, shooting: 86, passing: 83, dribbling: 92, defending: 36, physical: 61, team: "PSG" }
-};
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f9;
+    color: #333;
+    line-height: 1.6;
+    margin: 0;
+    padding: 0;
+}
 
-// Funzione per convertire un giocatore FIFA a PES21
-function convertPlayer() {
-  const fifaId = document.getElementById("fifaPlayerId").value;
-  const player = fifaDatabase[fifaId];
-  
-  if (!player) {
-    alert("Giocatore non trovato.");
-    return;
-  }
+header {
+    background-color: #0078D4;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
 
-  // Conversione delle statistiche
-  const pesPlayer = {
-    name: player.name,
-    overall: fifaToPesConversion["overall"](player.overall),
-    pace: fifaToPesConversion["pace"](player.pace),
-    shooting: fifaToPesConversion["shooting"](player.shooting),
-    passing: fifaToPesConversion["passing"](player.passing),
-    dribbling: fifaToPesConversion["dribbling"](player.dribbling),
-    defending: fifaToPesConversion["defending"](player.defending),
-    physical: fifaToPesConversion["physical"](player.physical)
-  };
+main {
+    padding: 2rem;
+    max-width: 900px;
+    margin: auto;
+}
 
-  // Mostriamo i risultati
-  document.getElementById("pesName").textContent = "Nome: " + pesPlayer.name;
-  document.getElementById("pesAttributes").textContent = `Overall: ${pesPlayer.overall} | Pace: ${pesPlayer.pace} | Shooting: ${pesPlayer.shooting} | Passing: ${pesPlayer.passing} | Dribbling: ${pesPlayer.dribbling} | Defending: ${pesPlayer.defending} | Physical: ${pesPlayer.physical}`;
+textarea {
+    width: 100%;
+    height: 150px;
+    padding: 10px;
+    font-size: 1rem;
+    margin-bottom: 1rem;
+}
 
-  // Mostrare la sezione con il risultato
-  document.getElementById("result").style.display = "block";
+button {
+    background-color: #0078D4;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+button:hover {
+    background-color: #005EA8;
+}
+
+pre {
+    background: #f0f0f0;
+    padding: 1rem;
+    border: 1px solid #ddd;
+    white-space: pre-wrap;
+    word-wrap: break-word;
+}
+
+footer {
+    text-align: center;
+    margin-top: 2rem;
+    font-size: 0.9rem;
 }
