@@ -15,12 +15,11 @@ const data = {
     }
 };
 
-// Mostra i campionati per continente
+// Funzione per mostrare i campionati
 function showChampionships(continent) {
     const championshipList = document.getElementById('championship-list');
     championshipList.innerHTML = "";
 
-    // Aggiunge i campionati al DOM
     if (data[continent]) {
         for (const championship in data[continent]) {
             const li = document.createElement('li');
@@ -32,17 +31,15 @@ function showChampionships(continent) {
         }
     }
 
-    // Nasconde i continenti e mostra i campionati
-    document.getElementById('continents').style.display = 'none';
-    document.getElementById('championships').style.display = 'block';
+    // Gestione visibilità
+    toggleSections('championships');
 }
 
-// Mostra le squadre per campionato
+// Funzione per mostrare le squadre
 function showTeams(continent, championship) {
     const teamList = document.getElementById('team-list');
     teamList.innerHTML = "";
 
-    // Aggiunge le squadre al DOM
     if (data[continent] && data[continent][championship]) {
         data[continent][championship].forEach(team => {
             const li = document.createElement('li');
@@ -54,12 +51,11 @@ function showTeams(continent, championship) {
         });
     }
 
-    // Nasconde i campionati e mostra le squadre
-    document.getElementById('championships').style.display = 'none';
-    document.getElementById('teams').style.display = 'block';
+    // Gestione visibilità
+    toggleSections('teams');
 }
 
-// Mostra i giocatori per squadra
+// Funzione per mostrare i giocatori
 function showPlayers(team) {
     const players = {
         "Arsenal": ["Player 1", "Player 2", "Player 3"],
@@ -70,7 +66,6 @@ function showPlayers(team) {
     const playerInfo = document.getElementById('player-info');
     playerInfo.innerHTML = "";
 
-    // Aggiunge i giocatori al DOM
     if (players[team]) {
         players[team].forEach(player => {
             const p = document.createElement('p');
@@ -79,7 +74,19 @@ function showPlayers(team) {
         });
     }
 
-    // Nasconde le squadre e mostra i giocatori
-    document.getElementById('teams').style.display = 'none';
-    document.getElementById('players').style.display = 'block';
+    // Gestione visibilità
+    toggleSections('players');
+}
+
+// Funzione per tornare indietro
+function goBack(section) {
+    toggleSections(section);
+}
+
+// Funzione per gestire la visibilità delle sezioni
+function toggleSections(visibleSection) {
+    const sections = ['continents', 'championships', 'teams', 'players'];
+    sections.forEach(section => {
+        document.getElementById(section).style.display = section === visibleSection ? 'block' : 'none';
+    });
 }
