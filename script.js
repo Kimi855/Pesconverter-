@@ -1,7 +1,7 @@
 const playerData = [
-    { 
-        name: "Lionel Messi", 
-        team: "Inter Miami", 
+    {
+        name: "Lionel Messi",
+        team: "Inter Miami",
         fifaAttributes: {
             offensiveAwareness: 93,
             ballControl: 95,
@@ -14,9 +14,9 @@ const playerData = [
             acceleration: 85
         }
     },
-    { 
-        name: "Cristiano Ronaldo", 
-        team: "Al-Nassr", 
+    {
+        name: "Cristiano Ronaldo",
+        team: "Al-Nassr",
         fifaAttributes: {
             offensiveAwareness: 92,
             ballControl: 90,
@@ -29,54 +29,41 @@ const playerData = [
             acceleration: 82
         }
     },
+    // Aggiungi altri giocatori qui
 ];
 
 function searchPlayer() {
     const input = document.getElementById('searchInput').value.toLowerCase();
     const resultsContainer = document.getElementById('results');
-    resultsContainer.innerHTML = ""; // Clear previous results
+    resultsContainer.innerHTML = ""; // Pulisce i risultati precedenti
 
-    const filteredPlayers = playerData.filter(player => 
-        player.name.toLowerCase().includes(input) || 
+    const filteredPlayers = playerData.filter(player =>
+        player.name.toLowerCase().includes(input) ||
         player.team.toLowerCase().includes(input)
     );
 
     if (filteredPlayers.length > 0) {
         filteredPlayers.forEach(player => {
-            const pesAttributes = convertToPES(player.fifaAttributes);
             const playerElement = document.createElement('div');
+            playerElement.classList.add('player-card');
             playerElement.innerHTML = `
                 <h3>${player.name} (${player.team})</h3>
-                <p><strong>Converted PES Attributes:</strong></p>
+                <p><strong>Attributi FIFA:</strong></p>
                 <ul>
-                    <li>Offensive Awareness: ${pesAttributes.offensiveAwareness}</li>
-                    <li>Ball Control: ${pesAttributes.ballControl}</li>
-                    <li>Dribbling: ${pesAttributes.dribbling}</li>
-                    <li>Tight Possession: ${pesAttributes.tightPossession}</li>
-                    <li>Finishing: ${pesAttributes.finishing}</li>
-                    <li>Place Kicking: ${pesAttributes.placeKicking}</li>
-                    <li>Curl: ${pesAttributes.curl}</li>
-                    <li>Speed: ${pesAttributes.speed}</li>
-                    <li>Acceleration: ${pesAttributes.acceleration}</li>
+                    <li>Consapevolezza Offensiva: ${player.fifaAttributes.offensiveAwareness}</li>
+                    <li>Controllo di Palla: ${player.fifaAttributes.ballControl}</li>
+                    <li>Dribbling: ${player.fifaAttributes.dribbling}</li>
+                    <li>Possesso Stretto: ${player.fifaAttributes.tightPossession}</li>
+                    <li>Finalizzazione: ${player.fifaAttributes.finishing}</li>
+                    <li>Calci Piazzati: ${player.fifaAttributes.placeKicking}</li>
+                    <li>Effetto: ${player.fifaAttributes.curl}</li>
+                    <li>Velocità: ${player.fifaAttributes.speed}</li>
+                    <li>Accelerazione: ${player.fifaAttributes.acceleration}</li>
                 </ul>
             `;
             resultsContainer.appendChild(playerElement);
         });
     } else {
-        resultsContainer.innerHTML = "<p>No players found.</p>";
+        resultsContainer.innerHTML = "<p>Nessun giocatore trovato.</p>";
     }
-}
-
-function convertToPES(fifaAttributes) {
-    return {
-        offensiveAwareness: Math.round(fifaAttributes.offensiveAwareness * 0.95),
-        ballControl: Math.round(fifaAttributes.ballControl * 0.98),
-        dribbling: Math.round(fifaAttributes.dribbling * 0.97),
-        tightPossession: Math.round(fifaAttributes.tightPossession * 0.96),
-        finishing: Math.round(fifaAttributes.finishing * 0.94),
-        placeKicking: Math.round(fifaAttributes.placeKicking * 0.92),
-        curl: Math.round(fifaAttributes.curl * 0.93),
-        speed: Math.round(fifaAttributes.speed * 0.90),
-        acceleration: Math.round(fifaAttributes.acceleration * 0.92)
-    };
 }
