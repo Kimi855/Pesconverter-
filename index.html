@@ -3,27 +3,16 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>FIFA to PES21 Attribute Converter</title>
-    <link rel="stylesheet" href="style.css">
+    <title>FIFA to PES21 Converter</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <header>
-        <h1>FIFA to PES21 Attribute Converter</h1>
-    </header>
-    <main>
-        <section id="input-section">
-            <h2>Insert Player Data</h2>
-            <textarea id="fifa-input" placeholder="Paste FIFA data here"></textarea>
-            <button id="convert-btn">Convert</button>
-        </section>
-        <section id="output-section">
-            <h2>PES21 Converted Data</h2>
-            <pre id="pes-output"></pre>
-        </section>
-    </main>
-    <footer>
-        <p>&copy; 2024 PES Attribute Converter Tool</p>
-    </footer>
-    <script src="script.js"></script>
+    <h1>FIFA to PES21 Attribute Converter</h1>
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Search for player or team">
+        <button onclick="searchPlayer()">Search</button>
+    </div>
+    <div id="results"></div>
+    <script src="converter.js"></script>
 </body>
 </html>
