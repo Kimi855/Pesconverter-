@@ -2,28 +2,22 @@ body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
+    text-align: center;
     background-color: #f4f4f4;
-    color: #333;
 }
 
 header {
-    background-color: #0066cc;
+    background-color: #333;
     color: #fff;
-    text-align: center;
-    padding: 1rem 0;
+    padding: 1em 0;
 }
 
-header h1 {
+h1 {
     margin: 0;
-    font-size: 2rem;
 }
 
 main {
-    padding: 1rem;
-}
-
-h2 {
-    color: #0066cc;
+    padding: 2em;
 }
 
 ul {
@@ -31,33 +25,40 @@ ul {
     padding: 0;
 }
 
-ul li {
-    margin: 0.5rem 0;
+li {
+    margin: 0.5em 0;
 }
 
 button {
-    background-color: #0066cc;
-    color: #fff;
-    border: none;
-    padding: 0.5rem 1rem;
+    padding: 0.5em 1em;
+    font-size: 1em;
     cursor: pointer;
-    border-radius: 5px;
 }
 
 button:hover {
-    background-color: #004d99;
+    background-color: #ddd;
 }
 
-#player-info {
-    background-color: #fff;
-    border: 1px solid #ccc;
-    padding: 1rem;
-    border-radius: 5px;
+.back-button {
+    display: inline-block;
+    margin: 1em;
+    padding: 0.5em 1em;
+    font-size: 0.9em;
+    color: #333;
+    background-color: #f4f4f4;
+    border: 1px solid #ddd;
+    cursor: pointer;
+}
+
+.back-button:hover {
+    background-color: #ddd;
 }
 
 footer {
-    text-align: center;
-    padding: 1rem;
     background-color: #333;
     color: #fff;
+    padding: 1em 0;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
 }
