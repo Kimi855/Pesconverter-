@@ -1,69 +1,47 @@
-const playerData = [
-    {
-        name: "Lionel Messi",
-        team: "Inter Miami",
-        fifaAttributes: {
-            offensiveAwareness: 93,
-            ballControl: 95,
-            dribbling: 96,
-            tightPossession: 93,
-            finishing: 94,
-            placeKicking: 92,
-            curl: 89,
-            speed: 78,
-            acceleration: 85
-        }
-    },
-    {
-        name: "Cristiano Ronaldo",
-        team: "Al-Nassr",
-        fifaAttributes: {
-            offensiveAwareness: 92,
-            ballControl: 90,
-            dribbling: 88,
-            tightPossession: 86,
-            finishing: 95,
-            placeKicking: 84,
-            curl: 87,
-            speed: 80,
-            acceleration: 82
-        }
-    },
-    // Aggiungi altri giocatori qui
-];
+function showTeams(championship) {
+    const teams = {
+        "Premier League": ["Arsenal", "Manchester City", "Chelsea"],
+        "Serie A": ["Juventus", "Inter", "AC Milan"],
+        "La Liga": ["Real Madrid", "Barcelona", "Atletico Madrid"],
+        "Bundesliga": ["Bayern Munich", "Borussia Dortmund", "RB Leipzig"],
+        "Saudi League": ["Al-Nassr", "Al-Hilal", "Al-Ittihad"]
+    };
 
-function searchPlayer() {
-    const input = document.getElementById('searchInput').value.toLowerCase();
-    const resultsContainer = document.getElementById('results');
-    resultsContainer.innerHTML = ""; // Pulisce i risultati precedenti
+    const teamList = document.getElementById('team-list');
+    teamList.innerHTML = "";
 
-    const filteredPlayers = playerData.filter(player =>
-        player.name.toLowerCase().includes(input) ||
-        player.team.toLowerCase().includes(input)
-    );
-
-    if (filteredPlayers.length > 0) {
-        filteredPlayers.forEach(player => {
-            const playerElement = document.createElement('div');
-            playerElement.classList.add('player-card');
-            playerElement.innerHTML = `
-                <h3>${player.name} (${player.team})</h3>
-                <p><strong>Attributi FIFA:</strong></p>
-                <ul>
-                    <li>Consapevolezza Offensiva: ${player.fifaAttributes.offensiveAwareness}</li>
-                    <li>Controllo di Palla: ${player.fifaAttributes.ballControl}</li>
-                    <li>Dribbling: ${player.fifaAttributes.dribbling}</li>
-                    <li>Possesso Stretto: ${player.fifaAttributes.tightPossession}</li>
-                    <li>Finalizzazione: ${player.fifaAttributes.finishing}</li>
-                    <li>Calci Piazzati: ${player.fifaAttributes.placeKicking}</li>
-                    <li>Effetto: ${player.fifaAttributes.curl}</li>
-                    <li>Velocità: ${player.fifaAttributes.speed}</li>
-                    <li>Accelerazione: ${player.fifaAttributes.acceleration}</li>
-                </ul>
-            `;
-            resultsContainer.appendChild(playerElement);
+    if (teams[championship]) {
+        teams[championship].forEach(team => {
+            const li = document.createElement('li');
+            const button = document.createElement('button');
+            button.textContent = team;
+            button.onclick = () => showPlayers(team);
+            li.appendChild(button);
+            teamList.appendChild(li);
         });
-    } else {
-        resultsContainer.innerHTML = "<p>Nessun giocatore trovato.</p>";
     }
+
+    document.getElementById('championships').style.display = 'none';
+    document.getElementById('teams').style.display = 'block';
+}
+
+function showPlayers(team) {
+    const players = {
+        "Arsenal": ["Player 1", "Player 2", "Player 3"],
+        "Juventus": ["Player A", "Player B", "Player C"],
+    };
+
+    const playerInfo = document.getElementById('player-info');
+    playerInfo.innerHTML = "";
+
+    if (players[team]) {
+        players[team].forEach(player => {
+            const p = document.createElement('p');
+            p.textContent = player;
+            playerInfo.appendChild(p);
+        });
+    }
+
+    document.getElementById('teams').style.display = 'none';
+    document.getElementById('players').style.display = 'block';
 }
