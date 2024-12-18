@@ -1,44 +1,63 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Football Attribute Converter</title>
-    <link rel="stylesheet" href="style.css">
-</head>
-<body>
-    <header>
-        <h1>Football Attribute Converter</h1>
-        <p>Disponibile anche in italiano</p>
-    </header>
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+    color: #333;
+}
 
-    <main>
-        <section id="championships">
-            <h2>Select a Championship</h2>
-            <ul>
-                <li><button onclick="showTeams('Premier League')">Premier League</button></li>
-                <li><button onclick="showTeams('Serie A')">Serie A</button></li>
-                <li><button onclick="showTeams('La Liga')">La Liga</button></li>
-                <li><button onclick="showTeams('Bundesliga')">Bundesliga</button></li>
-                <li><button onclick="showTeams('Saudi League')">Saudi League</button></li>
-            </ul>
-        </section>
+header {
+    background-color: #0066cc;
+    color: #fff;
+    text-align: center;
+    padding: 1rem 0;
+}
 
-        <section id="teams" style="display: none;">
-            <h2>Select a Team</h2>
-            <ul id="team-list"></ul>
-        </section>
+header h1 {
+    margin: 0;
+    font-size: 2rem;
+}
 
-        <section id="players" style="display: none;">
-            <h2>Player Details</h2>
-            <div id="player-info"></div>
-        </section>
-    </main>
+main {
+    padding: 1rem;
+}
 
-    <footer>
-        <p>&copy; 2024 Football Attribute Converter</p>
-    </footer>
+h2 {
+    color: #0066cc;
+}
 
-    <script src="script.js"></script>
-</body>
-</html>
+ul {
+    list-style: none;
+    padding: 0;
+}
+
+ul li {
+    margin: 0.5rem 0;
+}
+
+button {
+    background-color: #0066cc;
+    color: #fff;
+    border: none;
+    padding: 0.5rem 1rem;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+button:hover {
+    background-color: #004d99;
+}
+
+#player-info {
+    background-color: #fff;
+    border: 1px solid #ccc;
+    padding: 1rem;
+    border-radius: 5px;
+}
+
+footer {
+    text-align: center;
+    padding: 1rem;
+    background-color: #333;
+    color: #fff;
+}
