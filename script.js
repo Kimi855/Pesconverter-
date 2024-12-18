@@ -31,7 +31,6 @@ function showChampionships(continent) {
         }
     }
 
-    // Gestione visibilità
     toggleSections('championships');
 }
 
@@ -51,7 +50,6 @@ function showTeams(continent, championship) {
         });
     }
 
-    // Gestione visibilità
     toggleSections('teams');
 }
 
@@ -74,13 +72,12 @@ function showPlayers(team) {
         });
     }
 
-    // Gestione visibilità
     toggleSections('players');
 }
 
-// Funzione per tornare indietro
-function goBack(section) {
-    toggleSections(section);
+// Funzione per tornare al menu precedente
+function goBack(previousSection) {
+    toggleSections(previousSection);
 }
 
 // Funzione per gestire la visibilità delle sezioni
