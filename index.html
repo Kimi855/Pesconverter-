@@ -1,18 +1,44 @@
 <!DOCTYPE html>
-<html lang="it">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ricerca Giocatori</title>
-    <link rel="stylesheet" href="styles.css">
+    <title>Football Attribute Converter</title>
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <h1>Ricerca Giocatori</h1>
-    <div class="search-container">
-        <input type="text" id="searchInput" placeholder="Inserisci nome giocatore o squadra">
-        <button onclick="searchPlayer()">Cerca</button>
-    </div>
-    <div id="results"></div>
+    <header>
+        <h1>Football Attribute Converter</h1>
+        <p>Disponibile anche in italiano</p>
+    </header>
+
+    <main>
+        <section id="championships">
+            <h2>Select a Championship</h2>
+            <ul>
+                <li><button onclick="showTeams('Premier League')">Premier League</button></li>
+                <li><button onclick="showTeams('Serie A')">Serie A</button></li>
+                <li><button onclick="showTeams('La Liga')">La Liga</button></li>
+                <li><button onclick="showTeams('Bundesliga')">Bundesliga</button></li>
+                <li><button onclick="showTeams('Saudi League')">Saudi League</button></li>
+            </ul>
+        </section>
+
+        <section id="teams" style="display: none;">
+            <h2>Select a Team</h2>
+            <ul id="team-list"></ul>
+        </section>
+
+        <section id="players" style="display: none;">
+            <h2>Player Details</h2>
+            <div id="player-info"></div>
+        </section>
+    </main>
+
+    <footer>
+        <p>&copy; 2024 Football Attribute Converter</p>
+    </footer>
+
     <script src="script.js"></script>
 </body>
 </html>
