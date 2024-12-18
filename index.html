@@ -25,18 +25,21 @@
 
         <!-- Selezione Campionati -->
         <section id="championships" style="display: none;">
-            <h2>Select a Championship</h2>
+            <button class="back-button" onclick="goBack('continents')">&larr; Back</button>
+            <h2>Select Competition</h2>
             <ul id="championship-list"></ul>
         </section>
 
         <!-- Selezione Squadre -->
         <section id="teams" style="display: none;">
+            <button class="back-button" onclick="goBack('championships')">&larr; Back</button>
             <h2>Select a Team</h2>
             <ul id="team-list"></ul>
         </section>
 
         <!-- Dettagli Giocatori -->
         <section id="players" style="display: none;">
+            <button class="back-button" onclick="goBack('teams')">&larr; Back</button>
             <h2>Player Details</h2>
             <div id="player-info"></div>
         </section>
