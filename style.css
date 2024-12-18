@@ -1,65 +1,44 @@
-body {
-    font-family: Arial, sans-serif;
-    background-color: #f4f4f4;
-    color: #333;
-    text-align: center;
-    margin: 0;
-    padding: 0;
-}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Football Attribute Converter</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+    <header>
+        <h1>Football Attribute Converter</h1>
+        <p>Disponibile anche in italiano</p>
+    </header>
 
-h1 {
-    margin-top: 20px;
-}
+    <main>
+        <section id="championships">
+            <h2>Select a Championship</h2>
+            <ul>
+                <li><button onclick="showTeams('Premier League')">Premier League</button></li>
+                <li><button onclick="showTeams('Serie A')">Serie A</button></li>
+                <li><button onclick="showTeams('La Liga')">La Liga</button></li>
+                <li><button onclick="showTeams('Bundesliga')">Bundesliga</button></li>
+                <li><button onclick="showTeams('Saudi League')">Saudi League</button></li>
+            </ul>
+        </section>
 
-.search-container {
-    margin: 20px;
-}
+        <section id="teams" style="display: none;">
+            <h2>Select a Team</h2>
+            <ul id="team-list"></ul>
+        </section>
 
-input {
-    padding: 10px;
-    width: 250px;
-    margin-right: 10px;
-    border: 1px solid #ccc;
-    border-radius: 4px;
-}
+        <section id="players" style="display: none;">
+            <h2>Player Details</h2>
+            <div id="player-info"></div>
+        </section>
+    </main>
 
-button {
-    padding: 10px 20px;
-    background-color: #28a745;
-    color: white;
-    border: none;
-    border-radius: 4px;
-    cursor: pointer;
-}
+    <footer>
+        <p>&copy; 2024 Football Attribute Converter</p>
+    </footer>
 
-button:hover {
-    background-color: #218838;
-}
-
-#results {
-    margin-top: 20px;
-    text-align: left;
-    display: inline-block;
-    width: 80%;
-}
-
-.player-card {
-    background-color: white;
-    border: 1px solid #ddd;
-    border-radius: 4px;
-    padding: 15px;
-    margin-bottom: 10px;
-}
-
-.player-card h3 {
-    margin: 0 0 10px 0;
-}
-
-.player-card ul {
-    list-style-type: none;
-    padding: 0;
-}
-
-.player-card li {
-    margin-bottom: 5px;
-}
+    <script src="script.js"></script>
+</body>
+</html>
