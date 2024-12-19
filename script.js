@@ -25,35 +25,35 @@ const players = {
     "Al Hilal": ["André Carrillo", "Salem Al-Dawsari"]
 };
 
-function loadChampionships(continent) {
-    const championshipMenu = document.getElementById('championship-menu');
-    const continentsMenu = document.getElementById('continent-menu');
-    const championshipsList = document.getElementById('championships');
+function loadLeagues(continent) {
+    const leagueMenu = document.getElementById('league-menu');
+    const continentMenu = document.getElementById('continent-menu');
+    const leaguesList = document.getElementById('leagues');
     
-    continentsMenu.classList.add('hidden');
-    championshipMenu.classList.remove('hidden');
+    continentMenu.classList.add('hidden');
+    leagueMenu.classList.remove('hidden');
     
-    championshipsList.innerHTML = '';
-    const championships = data[continent];
+    leaguesList.innerHTML = '';
+    const leagues = data[continent];
     
-    for (const championship in championships) {
+    for (const league in leagues) {
         const li = document.createElement('li');
-        li.textContent = championship;
-        li.onclick = () => loadTeams(championship, continent);
-        championshipsList.appendChild(li);
+        li.textContent = league;
+        li.onclick = () => loadTeams(league, continent);
+        leaguesList.appendChild(li);
     }
 }
 
-function loadTeams(championship, continent) {
+function loadTeams(league, continent) {
     const teamMenu = document.getElementById('team-menu');
-    const championshipMenu = document.getElementById('championship-menu');
+    const leagueMenu = document.getElementById('league-menu');
     const teamsList = document.getElementById('teams');
     
-    championshipMenu.classList.add('hidden');
+    leagueMenu.classList.add('hidden');
     teamMenu.classList.remove('hidden');
     
     teamsList.innerHTML = '';
-    const teams = data[continent][championship];
+    const teams = data[continent][league];
     
     for (const team of teams) {
         const li = document.createElement('li');
@@ -99,10 +99,24 @@ function showPlayerData(player) {
     `;
 }
 
-function goBack() {
+function goBack(menu) {
     const playerData = document.getElementById('player-data');
     const continentMenu = document.getElementById('continent-menu');
+    const leagueMenu = document.getElementById('league-menu');
+    const teamMenu = document.getElementById('team-menu');
+    const playerMenu = document.getElementById('player-menu');
     
-    playerData.classList.add('hidden');
-    continentMenu.classList.remove('hidden');
+    if (menu === 'continent') {
+        continentMenu.classList.remove('hidden');
+        leagueMenu.classList.add('hidden');
+    } else if (menu === 'league') {
+        leagueMenu.classList.remove('hidden');
+        teamMenu.classList.add('hidden');
+    } else if (menu === 'team') {
+        teamMenu.classList.remove('hidden');
+        playerMenu.classList.add('hidden');
+    } else if (menu === 'player') {
+        playerData.classList.add('hidden');
+        playerMenu.classList.remove('hidden');
+    }
 }
