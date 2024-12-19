@@ -1,4 +1,4 @@
-// Struttura dati per continenti, campionati e squadre
+// Dati di esempio per continenti, campionati e squadre
 const data = {
     "Europe": {
         "Premier League": ["Arsenal", "Manchester City", "Chelsea"],
@@ -31,7 +31,7 @@ function showChampionships(continent) {
         }
     }
 
-    toggleSections('championships');
+    switchSection('championships');
 }
 
 // Funzione per mostrare le squadre
@@ -50,10 +50,10 @@ function showTeams(continent, championship) {
         });
     }
 
-    toggleSections('teams');
+    switchSection('teams');
 }
 
-// Funzione per mostrare i giocatori
+// Funzione per mostrare i dettagli dei giocatori
 function showPlayers(team) {
     const players = {
         "Arsenal": ["Player 1", "Player 2", "Player 3"],
@@ -72,18 +72,18 @@ function showPlayers(team) {
         });
     }
 
-    toggleSections('players');
+    switchSection('players');
 }
 
-// Funzione per tornare al menu precedente
-function goBack(previousSection) {
-    toggleSections(previousSection);
+// Funzione per navigare indietro
+function navigateBack(previousSection) {
+    switchSection(previousSection);
 }
 
 // Funzione per gestire la visibilità delle sezioni
-function toggleSections(visibleSection) {
+function switchSection(sectionToShow) {
     const sections = ['continents', 'championships', 'teams', 'players'];
     sections.forEach(section => {
-        document.getElementById(section).style.display = section === visibleSection ? 'block' : 'none';
+        document.getElementById(section).style.display = section === sectionToShow ? 'block' : 'none';
     });
 }
