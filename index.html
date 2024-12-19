@@ -1,54 +1,28 @@
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Football Attribute Converter</title>
-    <link rel="stylesheet" href="style.css">
+    <title>Player Data Converter</title>
+    <link rel="stylesheet" href="styles.css">
 </head>
 <body>
     <header>
-        <h1>Football Attribute Converter</h1>
-        <p>Disponibile anche in italiano</p>
+        <h1>Player Data Converter</h1>
     </header>
-
     <main>
-        <!-- Menu Continenti -->
-        <section id="continents">
-            <h2>Select a Continent</h2>
+        <div id="continent-menu">
+            <h2>Select Continent</h2>
             <ul>
-                <li><button onclick="showChampionships('Europe')">Europe</button></li>
-                <li><button onclick="showChampionships('South America')">South America</button></li>
-                <li><button onclick="showChampionships('Asia')">Asia</button></li>
+                <li><button onclick="navigateTo('Europe')">Europe</button></li>
+                <li><button onclick="navigateTo('South America')">South America</button></li>
+                <li><button onclick="navigateTo('Asia')">Asia</button></li>
+                <!-- Add other continents as needed -->
             </ul>
-        </section>
-
-        <!-- Menu Campionati -->
-        <section id="championships" style="display: none;">
-            <button class="back-button" onclick="navigateBack('continents')">&larr; Back</button>
-            <h2>Select a Competition</h2>
-            <ul id="championship-list"></ul>
-        </section>
-
-        <!-- Menu Squadre -->
-        <section id="teams" style="display: none;">
-            <button class="back-button" onclick="navigateBack('championships')">&larr; Back</button>
-            <h2>Select a Team</h2>
-            <ul id="team-list"></ul>
-        </section>
-
-        <!-- Menu Giocatori -->
-        <section id="players" style="display: none;">
-            <button class="back-button" onclick="navigateBack('teams')">&larr; Back</button>
-            <h2>Player Details</h2>
-            <div id="player-info"></div>
-        </section>
+        </div>
+        <div id="content"></div>
     </main>
-
-    <footer>
-        <p>&copy; 2024 Football Attribute Converter</p>
-    </footer>
-
     <script src="script.js"></script>
 </body>
 </html>
