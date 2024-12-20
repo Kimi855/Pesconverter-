@@ -1,0 +1,58 @@
+/* Esempio di stile per il sito */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #000;
+    color: #fff;
+    margin: 0;
+    padding: 0;
+}
+
+.container {
+    margin: 20px;
+}
+
+header .banner {
+    text-align: center;
+    margin-bottom: 30px;
+}
+
+header h1 {
+    font-size: 40px;
+}
+
+header h1 .pes {
+    color: white;
+}
+
+header h1 .green {
+    color: #00FF00;
+}
+
+.content {
+    text-align: center;
+}
+
+footer {
+    text-align: center;
+    margin-top: 30px;
+}
+
+footer .footer-links a {
+    color: #fff;
+    margin: 10px;
+    text-decoration: none;
+}
+
+button {
+    background-color: #333;
+    color: white;
+    border: none;
+    padding: 10px 20px;
+    margin: 5px;
+    cursor: pointer;
+    font-size: 16px;
+}
+
+button:hover {
+    background-color: #444;
+}
