@@ -2,6 +2,7 @@ from flask import Flask, request, jsonify
 import pandas as pd
 from scipy.stats import linregress
 import requests
+import json
 
 app = Flask(__name__)
 
@@ -12,10 +13,10 @@ def get_sofifa_data(api_key=None, player_page=1):
     url = "https://api.sofifa.com/api/v1/players"
 
     headers = {
-    "Accept": "application/json"
+      "Accept": "application/json"
     }
     if api_key:
-    headers["Authorization"] = f"Bearer {api_key}"
+      headers["Authorization"] = f"Bearer {api_key}"
 
     params = {
         "page": player_page,
@@ -23,13 +24,13 @@ def get_sofifa_data(api_key=None, player_page=1):
     }
     
     try:
-        response = requests.get(url, headers=headers, params=params)
-        response.raise_for_status()  # Lancia un'eccezione per codici di stato non 2xx
+      response = requests.get(url, headers=headers, params=params)
+      response.raise_for_status()  # Lancia un'eccezione per codici di stato non 2xx
 
-        data = response.json()
-        
-        players_data = []
-        for player in data.get('items', []):
+      data = response.json()
+      
+      players_data = []
+      for player in data.get('items', []):
             player_data = {
                 'Overall': player['overall'],
                 'Pace': player['pace'],
@@ -74,8 +75,8 @@ def get_sofifa_data(api_key=None, player_page=1):
             }
             players_data.append(player_data)
 
-        df = pd.DataFrame(players_data)
-        return df, data.get('totalPages', 1) # Restituisce anche il numero totale di pagine
+      df = pd.DataFrame(players_data)
+      return df, data.get('totalPages', 1) # Restituisce anche il numero totale di pagine
 
     except requests.exceptions.RequestException as e:
         print(f"Errore durante la richiesta all'API di Sofifa: {e}")
